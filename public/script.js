@@ -20,32 +20,45 @@ form.addEventListener("submit", (e) => {
   input_box.value = "";
 });
 
-async function selfReply(message) {
-  message_container.innerHTML += `<div class="self">${message}</div>`;
-  location.href = "#edge";
+function selfReply(message) {
+  console.log(message);
+  if (message) {
+    !(message === isNaN)
+      ? botReply("Oh, not numbers again. I'm not good with it!!!")
+      : checkContent();
+  } else {
+    botReply("Say something. I can't read your mind...yet");
+  }
 
-  await bot.reply("local-user", message).then((reply) => {
-    botReply(reply);
-  });
+  async function checkContent() {
+    message_container.innerHTML += `<div class="self">${message}</div>`;
+    location.href = "#edge";
+    await bot.reply("local-user", message).then((reply) => {
+      botReply(reply);
+    });
+  }
 }
 
 function botReply(message) {
-  message_container.innerHTML += `<div class="typing-loader"></div>`;
+  // message_container.innerHTML += `<div class="typing-loader"></div>`;
+  message_container.innerHTML += `<div class="bot">${message}</div>`;
+  location.href = "#edge";
+  input_box.focus();
 
-  setTimeout(() => {
-    //Create a loader to give a bot typing feel
-    const loader = document.querySelector(".typing-loader");
-    loader.remove();
+  // setTimeout(() => {
+  //   //Create a loader to give a bot typing feel
+  //   const loader = document.querySelector(".typing-loader");
+  //   loader.remove();
 
-    message_container.innerHTML += `<div class="bot">${message}</div>`;
-    const botMsg = [...document.querySelectorAll(".bot")];
-    botMsg.forEach((msg) => {
-      botMsg[botMsg.length - 1].scrollTo(0, 10);
-      console.log(botMsg[botMsg.length - 1]);
-    });
-    location.href = "#edge";
-    input_box.focus();
-  }, 500);
+  //   message_container.innerHTML += `<div class="bot">${message}</div>`;
+  //   const botMsg = [...document.querySelectorAll(".bot")];
+  //   botMsg.forEach((msg) => {
+  //     botMsg[botMsg.length - 1].scrollTo(0, 10);
+  //     console.log(botMsg[botMsg.length - 1]);
+  //   });
+  //   location.href = "#edge";
+  //   input_box.focus();
+  // }, 500);
 }
 
 async function botReady() {
