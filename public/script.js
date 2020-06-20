@@ -45,14 +45,13 @@ function botReply(message) {
     const loader = document.querySelector(".typing-loader");
     loader.remove();
     message_container.innerHTML += `<div class="bot">${message}</div>`;
-    const botMsg = [...document.querySelectorAll(".bot")];
-    botMsg.forEach((msg) => {
-      botMsg[botMsg.length - 1].scrollTo(0, 10);
-      location.href = "#edge";
-      input_box.focus();
-    });
+    // const botMsg = [...document.querySelectorAll(".bot")];
+    // botMsg.forEach((msg) => {
+    //   botMsg[botMsg.length - 1].scrollTo(0, -500);
+    // });
+    location.href = "#edge";
+    input_box.focus();
   }, 500);
-  setTimeout(() => {}, 1000);
 }
 
 async function botReady() {
