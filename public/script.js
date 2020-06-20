@@ -44,17 +44,15 @@ function botReply(message) {
     //Create a loader to give a bot typing feel
     const loader = document.querySelector(".typing-loader");
     loader.remove();
-
     message_container.innerHTML += `<div class="bot">${message}</div>`;
     const botMsg = [...document.querySelectorAll(".bot")];
     botMsg.forEach((msg) => {
       botMsg[botMsg.length - 1].scrollTo(0, 10);
+      location.href = "#edge";
+      input_box.focus();
     });
-  }, 700);
-  setTimeout(() => {
-    location.href = "#edge";
-    input_box.focus();
-  }, 1000);
+  }, 500);
+  setTimeout(() => {}, 1000);
 }
 
 async function botReady() {
