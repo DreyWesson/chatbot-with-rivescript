@@ -1,7 +1,7 @@
 {
   "particles": {
     "number": {
-      "value": 270
+      "value": 300
     },
     "color": {
       "value": "#000"
@@ -19,7 +19,7 @@
     },
     "line_linked": {
       "distance": 180,
-      "color": "#313539",
+      "color": "#000",
       "opacity": 0.1
     }
   }

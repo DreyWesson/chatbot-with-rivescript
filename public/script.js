@@ -26,16 +26,18 @@ async function selfReply(message) {
 
   await bot.reply("local-user", message).then((reply) => {
     botReply(reply);
-    // form.scrollIntoView({
-    //   behaviour: "smooth",
-    // });
   });
 }
 
 function botReply(message) {
-  message_container.innerHTML += `<div class="bot">${message}</div>`;
-  location.href = "#edge";
-  input_box.focus();
+  message_container.innerHTML += `<div class="typing-loader"></div>`;
+  setTimeout(() => {
+    const loader = document.querySelector(".typing-loader");
+    loader.remove();
+    message_container.innerHTML += `<div class="bot">${message}</div>`;
+    location.href = "#edge";
+    input_box.focus();
+  }, 1000);
 }
 
 async function botReady() {
