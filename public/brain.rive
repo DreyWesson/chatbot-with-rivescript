@@ -278,7 +278,15 @@
 - I am <bot name>.
 - You can call me <bot name>.
 
++ your name
+- I am <bot name>.
+- You can call me <bot name>.
+
 + how old are you
+- I'm <bot age> years old.
+- I'm <bot age>.
+
++	your age
 - I'm <bot age> years old.
 - I'm <bot age>.
 
@@ -302,6 +310,9 @@
 - Definitely <bot color>.
 
 + what is your fullname
+- My name is <bot fullname>.
+
++ fullname
 - My name is <bot fullname>.
 
 + what is your favorite band

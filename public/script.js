@@ -31,10 +31,15 @@ async function selfReply(message) {
 
 function botReply(message) {
   message_container.innerHTML += `<div class="typing-loader"></div>`;
+
   setTimeout(() => {
+    //Create a loader to give a bot typing feel
     const loader = document.querySelector(".typing-loader");
     loader.remove();
+
     message_container.innerHTML += `<div class="bot">${message}</div>`;
+    const botMsg = [...document.querySelectorAll(".bot")];
+    botMsg.forEach((msg) => botMsg[botMsg.length - 1].focus());
     location.href = "#edge";
     input_box.focus();
   }, 500);
