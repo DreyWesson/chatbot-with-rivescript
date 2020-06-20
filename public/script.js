@@ -40,7 +40,7 @@ function botReply(message) {
     message_container.innerHTML += `<div class="bot">${message}</div>`;
     const botMsg = [...document.querySelectorAll(".bot")];
     botMsg.forEach((msg) => {
-      botMsg[botMsg.length - 1].scrollIntoView();
+      botMsg[botMsg.length - 1].scrollTo(0, 100);
       console.log(botMsg[botMsg.length - 1]);
     });
     location.href = "#edge";
