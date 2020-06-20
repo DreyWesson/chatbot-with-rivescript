@@ -37,7 +37,7 @@ function botReply(message) {
     message_container.innerHTML += `<div class="bot">${message}</div>`;
     location.href = "#edge";
     input_box.focus();
-  }, 1000);
+  }, 500);
 }
 
 async function botReady() {
