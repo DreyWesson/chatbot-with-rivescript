@@ -21,11 +21,10 @@ form.addEventListener("submit", (e) => {
 });
 
 function selfReply(message) {
-  console.log(message);
   if (message) {
-    !(message === isNaN)
-      ? botReply("Oh, not numbers again. I'm not good with it!!!")
-      : checkContent();
+    isNaN(message)
+      ? checkContent(message)
+      : botReply("Oh, not numbers again. I'm not good with it!!!");
   } else {
     botReply("Say something. I can't read your mind...yet");
   }
@@ -40,25 +39,22 @@ function selfReply(message) {
 }
 
 function botReply(message) {
-  // message_container.innerHTML += `<div class="typing-loader"></div>`;
-  message_container.innerHTML += `<div class="bot">${message}</div>`;
-  location.href = "#edge";
-  input_box.focus();
+  message_container.innerHTML += `<div class="typing-loader"></div>`;
+  setTimeout(() => {
+    //Create a loader to give a bot typing feel
+    const loader = document.querySelector(".typing-loader");
+    loader.remove();
 
-  // setTimeout(() => {
-  //   //Create a loader to give a bot typing feel
-  //   const loader = document.querySelector(".typing-loader");
-  //   loader.remove();
-
-  //   message_container.innerHTML += `<div class="bot">${message}</div>`;
-  //   const botMsg = [...document.querySelectorAll(".bot")];
-  //   botMsg.forEach((msg) => {
-  //     botMsg[botMsg.length - 1].scrollTo(0, 10);
-  //     console.log(botMsg[botMsg.length - 1]);
-  //   });
-  //   location.href = "#edge";
-  //   input_box.focus();
-  // }, 500);
+    message_container.innerHTML += `<div class="bot">${message}</div>`;
+    const botMsg = [...document.querySelectorAll(".bot")];
+    botMsg.forEach((msg) => {
+      botMsg[botMsg.length - 1].scrollTo(0, 10);
+    });
+  }, 700);
+  setTimeout(() => {
+    location.href = "#edge";
+    input_box.focus();
+  }, 1000);
 }
 
 async function botReady() {
