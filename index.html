@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Chatbot" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <div class="header">
+        <h1><i class="fa fa-android"></i> <span>Wesson bot</span></h1>
+      </div>
+    </header>
+
+    <div id="particles-js">
+      <div class="chat">
+        <div class="messages"></div>
+        <div id="edge"></div>
+        <form class="actions">
+          <label for="message">Enter your message</label>
+          <input
+            type="text"
+            id="message"
+            placeholder="press 'Enter' to send..."
+            autofocus
+          />
+          <button>Send</button>
+        </form>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/rivescript@latest/dist/rivescript.min.js"></script>
+    <script src="/particles.js"></script>
+    <script src="script.js"></script>
+    <script>
+      particlesJS.load("particles-js", "/particles.json", function () {
+        console.log("particles.js config loaded");
+      });
+    </script>
+  </body>
+</html>
