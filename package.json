@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/DreyWesson/chatbot-with-rivescript/issues"
   },
-  "homepage": "https://github.com/DreyWesson/chatbot-with-rivescript#readme"
+  "homepage": "https://github.com/DreyWesson/chatbot-with-rivescript#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
