@@ -45,10 +45,10 @@ function botReply(message) {
     const loader = document.querySelector(".typing-loader");
     loader.remove();
     message_container.innerHTML += `<div class="bot">${message}</div>`;
-    // const botMsg = [...document.querySelectorAll(".bot")];
-    // botMsg.forEach((msg) => {
-    //   botMsg[botMsg.length - 1].scrollTo(0, -500);
-    // });
+    const botMsg = [...document.querySelectorAll(".bot")];
+    botMsg.forEach((msg) => {
+      botMsg[botMsg.length - 1].scrollTo(0, -500);
+    });
     location.href = "#edge";
     input_box.focus();
   }, 500);
