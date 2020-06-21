@@ -76,7 +76,9 @@ span {
   background-size: cover;
   background-position: 50% 50%;
 }
-
+canvas {
+  margin-top: 20px;
+}
 label {
   position: absolute;
   top: -999999px;
