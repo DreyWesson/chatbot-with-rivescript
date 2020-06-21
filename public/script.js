@@ -3,8 +3,8 @@ let bot = new RiveScript();
 const message_container = document.querySelector(".messages");
 const form = document.querySelector("form");
 const input_box = document.querySelector("input");
-const sendSound = new Audio("/public/sounds/send_notification.mp3");
-const replySound = new Audio("/public/sounds/reply_notification.mp3");
+const sendSound = new Audio("./send_notification.mp3");
+const replySound = new Audio("./reply_notification.mp3");
 
 window.addEventListener("load", (event) => {
   input_box.focus();
