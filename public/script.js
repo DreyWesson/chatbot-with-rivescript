@@ -3,8 +3,8 @@ let bot = new RiveScript();
 const message_container = document.querySelector(".messages");
 const form = document.querySelector("form");
 const input_box = document.querySelector("input");
-const sendSound = new Audio("./send_notification.mp3");
-const replySound = new Audio("./reply_notification.mp3");
+const sendSound = new Audio("./sounds/send_notification.mp3");
+const replySound = new Audio("./sounds/reply_notification.mp3");
 
 window.addEventListener("load", (event) => {
   input_box.focus();
@@ -35,7 +35,7 @@ function selfReply(message) {
     message_container.innerHTML += `<div class="self">${message}</div>`;
     location.href = "#edge";
     await bot.reply("local-user", message).then((reply) => {
-      sendSound.play();
+      // sendSound.play();
       botReply(reply);
     });
   }
@@ -47,7 +47,7 @@ function botReply(message) {
     //Create a loader to give a bot typing feel
     const loader = document.querySelector(".typing-loader");
     loader.remove();
-    replySound.play();
+    sendSound.play();
     message_container.innerHTML += `<div class="bot">${message}</div>`;
     // const botMsg = [...document.querySelectorAll(".bot")];
     // botMsg.forEach((msg) => {
