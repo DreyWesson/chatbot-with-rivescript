@@ -86,7 +86,7 @@ label {
   display: flex;
   bottom: 0px;
   width: 100%;
-  bottom: 10px;
+  /* bottom: 10px; */
 }
 
 .actions input {
