@@ -45,10 +45,12 @@ function botReply(message) {
     const loader = document.querySelector(".typing-loader");
     loader.remove();
     message_container.innerHTML += `<div class="bot">${message}</div>`;
-    const botMsg = [...document.querySelectorAll(".bot")];
-    botMsg.forEach((msg) => {
-      botMsg[botMsg.length - 1].scrollTo(0, -500);
-    });
+    // const botMsg = [...document.querySelectorAll(".bot")];
+    // botMsg.forEach((msg) => {
+    //   botMsg[botMsg.length - 1].scrollTo(0, -500);
+    // });
+    // window.scrollTo(0, 500);
+    window.scrollTo(0, document.body.scrollHeight);
     location.href = "#edge";
     input_box.focus();
   }, 500);
@@ -62,3 +64,24 @@ async function botReady() {
 function botNotReady(err) {
   console.log("An error has occurred.", err);
 }
+
+document.body.addEventListener(
+  "focus",
+  (event) => {
+    const target = event.target;
+    switch (target.tagName) {
+      case "INPUT":
+      case "TEXTAREA":
+      case "SELECT":
+        document.body.classList.add("keyboard");
+    }
+  },
+  true
+);
+document.body.addEventListener(
+  "blur",
+  () => {
+    document.body.classList.remove("keyboard");
+  },
+  true
+);

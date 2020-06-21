@@ -190,3 +190,7 @@ input {
     margin: 0 auto;
   }
 }
+
+body.keyboard {
+  height: calc(100% + 500px); /* add padding for keyboard */
+}
