@@ -3,6 +3,8 @@ let bot = new RiveScript();
 const message_container = document.querySelector(".messages");
 const form = document.querySelector("form");
 const input_box = document.querySelector("input");
+
+//Sound effect for typing
 const sendSound = new Audio("./sounds/send_notification.mp3");
 // const replySound = new Audio("./sounds/reply_notification.mp3");
 
@@ -27,17 +29,12 @@ function selfReply(message) {
     isNaN(message)
       ? checkContent(message)
       : botReply("Oh, not numbers again. I'm not good with it!!!");
-  } else {
-    botReply("Say something. I can't read your mind...yet");
-  }
+  } else botReply("Say something. I can't read your mind...yet");
 
   async function checkContent() {
     message_container.innerHTML += `<div class="self">${message}</div>`;
     location.href = "#edge";
-    await bot.reply("local-user", message).then((reply) => {
-      // sendSound.play();
-      botReply(reply);
-    });
+    await bot.reply("local-user", message).then((reply) => botReply(reply));
   }
 }
 
@@ -65,6 +62,7 @@ function botNotReady(err) {
   console.log("An error has occurred.", err);
 }
 
+//Prevents the keyboard from overlapping the messages on mobile
 document.body.addEventListener(
   "focus",
   (event) => {
@@ -80,8 +78,6 @@ document.body.addEventListener(
 );
 document.body.addEventListener(
   "blur",
-  () => {
-    document.body.classList.remove("keyboard");
-  },
+  () => document.body.classList.remove("keyboard"),
   true
 );
