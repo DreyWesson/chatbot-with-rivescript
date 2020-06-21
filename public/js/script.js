@@ -4,13 +4,13 @@ const message_container = document.querySelector(".messages");
 const form = document.querySelector("form");
 const input_box = document.querySelector("input");
 const sendSound = new Audio("./sounds/send_notification.mp3");
-const replySound = new Audio("./sounds/reply_notification.mp3");
+// const replySound = new Audio("./sounds/reply_notification.mp3");
 
 window.addEventListener("load", (event) => {
   input_box.focus();
 });
 
-const brains = ["./brain.rive"];
+const brains = ["../brain.rive"];
 
 (async function () {
   await bot.loadFile(brains).then(botReady).catch(botNotReady);
@@ -49,15 +49,11 @@ function botReply(message) {
     loader.remove();
     sendSound.play();
     message_container.innerHTML += `<div class="bot">${message}</div>`;
-    // const botMsg = [...document.querySelectorAll(".bot")];
-    // botMsg.forEach((msg) => {
-    //   botMsg[botMsg.length - 1].scrollTo(0, -500);
-    // });
-    // window.scrollTo(0, 500);
+
     window.scrollTo(0, document.body.scrollHeight);
     location.href = "#edge";
     input_box.focus();
-  }, 700);
+  }, 1000);
 }
 
 async function botReady() {
