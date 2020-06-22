@@ -27,59 +27,17 @@ form.addEventListener("submit", (e) => {
 function selfReply(message) {
   if (message) {
     if (isNaN(message)) {
-      // filter Message to remove first message
-      // used to indicate whether unsplash, twitter or follow
-      function filterMessage() {
-        var res = message.split(" ");
-        var processing = res.splice(1);
-        const refined = processing.join(" ");
-        return refined;
-      }
-      // logic for twitter
-      if (message.indexOf("#twitterbot") == 0) {
+      if (message === "#hashtag") {
         setTimeout(() => {
-          filterMessage();
           botReply("This is peoples opinion");
         }, 2000);
-      } else if (message.indexOf("#moodsync") == 0) {
-        // logic for unsplash pictures
-        (function unsplashLogic() {
-          message_container.innerHTML += `<div class="typing-loader"></div>`;
-          setTimeout(() => {
-            const loader = document.querySelector(".typing-loader");
-            loader.remove();
-            message_container.innerHTML += `<div class="bot" style="background-color: white">
-              <img 
-                src="https://source.unsplash.com/400x400/?${filterMessage()} 
-                alt="${filterMessage()}">
-            </div>`;
-            setTimeout(() => {
-              sendSound.play();
-            }, 1500);
-          }, 1000);
-        })();
-      } else if (message.indexOf("@") == 0) {
+      } else if (message === "@username") {
         setTimeout(() => {
           botReply("Following u now");
         }, 2000);
-      } else if (
-        message === "How old are you" ||
-        message === "what is your age"
-      ) {
-        (function botAge() {
-          const dob = new Date(2020, 05, 20);
-          const diff_ms = Date.now() - dob.getTime();
-          const age_dt = new Date(diff_ms);
-          const ageInDays = Math.floor(diff_ms / (1000 * 60 * 60 * 24));
-          const ageInYears = Math.abs(age_dt.getUTCFullYear() - 1970);
-          ageInDays < 365
-            ? botReply(`I am ${ageInDays} days old`)
-            : botReply(`I am ${ageInYears} year(s) old`);
-        })();
-      } else botContentRoute();
-    } else botReply("Oops, I'm not good with 'Numbers'!!!"); //logic for numbers
+      } else checkContent(message);
+    } else botReply("Oops, I'm not good with 'Numbers'!!!");
   } else {
-    // logic if user sent empty message
     const messages = [
       `Empty messages!, you are so boring. I do have more interesting idea, though`,
       `You can send me your twitter handle. Or give me a name of someone on Twitter you would love me to run analysis on.`,
@@ -97,7 +55,7 @@ function selfReply(message) {
       setTimeout(() => botReply(messages[3]), 3500);
   }
 
-  async function botContentRoute() {
+  async function checkContent() {
     message_container.innerHTML += `<div class="self">${message}</div>`;
     location.href = "#edge";
     await bot.reply("local-user", message).then((reply) => botReply(reply));
@@ -122,11 +80,6 @@ function botReply(message) {
 async function botReady() {
   await bot.sortReplies();
   botReply("Hello");
-  setTimeout(() => {
-    botReply(
-      `Chat me up. If you have nothing in mind just click send with no message. I'll take it from there`
-    );
-  }, 2000);
 }
 
 function botNotReady(err) {

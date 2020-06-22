@@ -196,6 +196,12 @@
 - <set name=<formal>>Nice to meet you, <get name>.
 - <set name=<formal>><get name>, nice to meet you.
 
++ when were you created
+-	I was created 2020-06-20.
+
++ who created you
+-I was created by Oduwole Dare. dreywesson.netlify.com
+
 + my name is <bot master>
 - <set name=<bot master>>That's my master's name too.
 
