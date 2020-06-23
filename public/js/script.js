@@ -1,18 +1,17 @@
 let bot = new RiveScript();
+const brains = ["../brain.rive"];
 
 const message_container = document.querySelector(".messages");
 const form = document.querySelector("form");
 const input_box = document.querySelector("input");
 
 //Sound effect for typing
-const sendSound = new Audio("./sounds/send_notification.mp3");
 // const replySound = new Audio("./sounds/reply_notification.mp3");
+const sendSound = new Audio("./sounds/send_notification.mp3");
 
 window.addEventListener("load", (event) => {
   input_box.focus();
 });
-
-const brains = ["../brain.rive"];
 
 (async function () {
   await bot.loadFile(brains).then(botReady).catch(botNotReady);
@@ -25,23 +24,26 @@ form.addEventListener("submit", (e) => {
 });
 
 function selfReply(message) {
+  //
+  // Check if message is not empty
   if (message) {
+    //
+    // check if message is not a number
     if (isNaN(message)) {
-      // filter Message to remove first message
-      // used to indicate whether unsplash, twitter or follow
-      function filterMessage() {
-        var res = message.split(" ");
-        var processing = res.splice(1);
-        const refined = processing.join(" ");
-        return refined;
+      function remove(textToFilter) {
+        var msgArray = message.split(" ");
+        const index = msgArray.indexOf(textToFilter);
+        msgArray.splice(index, 1);
+        return msgArray.join(" ");
       }
       // logic for twitter
-      if (message.indexOf("#twitterbot") == 0) {
+      if (message.indexOf("#twitterbot") !== -1) {
         setTimeout(() => {
-          filterMessage();
+          // filterMessage();
+          remove("#twitterbot");
           botReply("This is peoples opinion");
         }, 2000);
-      } else if (message.indexOf("#moodsync") == 0) {
+      } else if (message.indexOf("#moodsync") !== -1) {
         // logic for unsplash pictures
         (function unsplashLogic() {
           message_container.innerHTML += `<div class="typing-loader"></div>`;
@@ -50,8 +52,10 @@ function selfReply(message) {
             loader.remove();
             message_container.innerHTML += `<div class="bot" style="background-color: white">
               <img 
-                src="https://source.unsplash.com/400x400/?${filterMessage()} 
-                alt="${filterMessage()}">
+                src="https://source.unsplash.com/400x400/?${remove(
+                  "#moodsync"
+                )} 
+                alt="${remove("#moodsync")}">
             </div>`;
             setTimeout(() => {
               sendSound.play();
