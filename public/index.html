@@ -10,6 +10,7 @@
       async
     />
     <link rel="stylesheet" href="/css/style.css" async />
+    <link rel="stylesheet" href="/css/modal.css" />
 
     <title>Document</title>
   </head>
@@ -38,10 +39,17 @@
           <button>Send</button>
         </form>
       </div>
+      <!-- The Modal -->
+      <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01" />
+        <div id="caption"></div>
+      </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="https://unpkg.com/rivescript@latest/dist/rivescript.min.js"></script>
     <script src="/js/script.js"></script>
+    <script type="module" src="/js/image.js"></script>
     <script>
       particlesJS.load("particles-js", "/particles.json", function () {
         console.log("particles.js config loaded");

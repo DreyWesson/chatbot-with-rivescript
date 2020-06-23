@@ -54,11 +54,33 @@ function selfReply(message) {
               <img 
                 src="https://source.unsplash.com/400x400/?${remove(
                   "#moodsync"
-                )} 
-                alt="${remove("#moodsync")}">
+                )} alt="${remove("#moodsync")}" class="unsplash">
             </div>`;
             setTimeout(() => {
               sendSound.play();
+              // Get the modal
+              var modal = document.getElementById("myModal");
+
+              // Get the image and insert it inside the modal - use its "alt" text as a caption
+              var img = document.querySelector(".unsplash");
+
+              var modalImg = document.getElementById("img01");
+              var captionText = document.getElementById("caption");
+              img.onclick = function () {
+                modal.style.display = "block";
+                modalImg.src = this.src;
+                captionText.innerHTML = this.alt;
+              };
+
+              // Get the <span> element that closes the modal
+              var span = document.getElementsByClassName("close")[0];
+              // When the user clicks on <span> (x), close the modal
+              span.onclick = function () {
+                modal.style.display = "none";
+              };
+              window.scrollTo(0, document.body.scrollHeight);
+              location.href = "#edge";
+              input_box.focus();
             }, 1500);
           }, 1000);
         })();
@@ -68,7 +90,9 @@ function selfReply(message) {
         }, 2000);
       } else if (
         message === "How old are you" ||
-        message === "what is your age"
+        message === "what is your age" ||
+        message === "what is your age?" ||
+        message === "How old are you?"
       ) {
         (function botAge() {
           const dob = new Date(2020, 05, 20);

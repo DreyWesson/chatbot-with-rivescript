@@ -1,0 +1,15 @@
+1.
+The NPF(NIGERIAN POLICE FORCE)
+They have this long standing issue of building a directory of all dpo 
+or divisional police offer phone numbers.
+How about you build a chatbot for the NPF that will respond to user 
+complaints for phone numbers of all Divisional police head.
+It can be fb chatbot or their website..
+Please note this names and phone number are available on their site.
+
+2. Gtbank
+Every week people gtb have to send list of directory via email of all 
+the branches that will be opened every week..
+They have thousands of followers subscribers on fb...
+Build a fb chatbot that can collect and send all this branches that 
+will be opened on monday to all those subscribers from ogun state
