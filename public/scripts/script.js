@@ -35,7 +35,7 @@ function selfReply(message) {
     //
     // check if message is not a number
     if (isNaN(message)) {
-      // Use remove function to remove signal words like #mood, #twitterbot
+      // Use remove function to remove signal words like mood, #twitterbot
       function remove(textToFilter) {
         let msgArray = message.split(" ");
         const index = msgArray.indexOf(textToFilter);
@@ -52,10 +52,10 @@ function selfReply(message) {
           message_container.innerHTML += `<div class="self">${message}</div>`;
           // botReply("These are peoples opinion");
         }, 2000);
-      } else if (message.indexOf("#mood") !== -1) {
+      } else if (message.indexOf("mood") !== -1) {
         // logic for unsplash pictures
         console.log(message);
-        console.log(remove("#mood"));
+        console.log(remove("mood"));
         message_container.innerHTML += `<div class="self">${message}</div>`;
         (function unsplashLogic() {
           // loading delay logic
@@ -66,10 +66,10 @@ function selfReply(message) {
             message_container.innerHTML += `<div class="bot" style="background-color: white">
               <img 
                 src="https://source.unsplash.com/800x800/?${remove(
-                  "#mood"
-                )} alt="${remove("#mood")}" class="unsplash">
+                  "mood"
+                )} alt="${remove("mood")}" class="unsplash">
                 <div style="background-color: white, box-shadow:box-shadow: 0 10px 50px #657786;">${remove(
-                  "#mood"
+                  "mood"
                 )}</div>
             </div>`;
             function modalLogic() {
@@ -135,7 +135,7 @@ function selfReply(message) {
       `Empty messages!, you are so boring. I do have more interesting idea, though`,
       `You can send me your twitter handle. Or give me a name of someone on Twitter you would love me to run analysis on.`,
       `...like Elon Musk, Messi, Trump, Nike, Nigeria. You got the gist.`,
-      `Would you like to see pictures based on your mood? In one(1) or few words, state your mood `,
+      `Would you like to see pictures based on yourmood? Send me "happymood, dancemood etc"`,
     ];
     let options = [messages[1], messages[3]];
     let random = Math.floor(Math.random() * 2);
