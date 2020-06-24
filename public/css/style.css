@@ -199,11 +199,11 @@ input {
   }
 }
 
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 550px) {
   * {
     font-family: Courier;
     font-size: 11pt;
-    max-width: 550px;
+    max-width: 500px;
     margin: 0 auto;
   }
 }
