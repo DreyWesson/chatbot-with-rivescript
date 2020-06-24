@@ -4,7 +4,7 @@
   "description": "",
   "main": "script.js",
   "scripts": {
-    "start": "node app",
+    "start": "GOOGLE_APPLICATION_CREDENTIALS='./gcloud-private-key.json' node app",
     "dev": "nodemon app"
   },
   "repository": {
@@ -19,6 +19,16 @@
   },
   "homepage": "https://github.com/DreyWesson/chatbot-with-rivescript#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "@google-cloud/language": "^4.1.0",
+    "browserify": "^16.5.1",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "env-variable": "0.0.6",
+    "envify": "^4.1.0",
+    "express": "^4.17.1",
+    "request": "^2.88.2",
+    "twit": "^2.2.11",
+    "twitter-lite": "^0.14.0",
+    "uniq": "^1.0.1"
   }
 }
