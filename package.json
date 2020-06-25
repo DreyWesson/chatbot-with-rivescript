@@ -5,8 +5,7 @@
   "main": "script.js",
   "scripts": {
     "start": "GOOGLE_APPLICATION_CREDENTIALS='./gcloud-private-key.json' node app",
-    "dev": "nodemon app",
-    "build": "workbox injectManifest workbox-config.js"
+    "dev": "nodemon app"
   },
   "repository": {
     "type": "git",
@@ -28,7 +27,6 @@
     "envify": "^4.1.0",
     "express": "^4.17.1",
     "request": "^2.88.2",
-    "rivescript": "^2.1.0",
     "twit": "^2.2.11",
     "twitter-lite": "^0.14.0",
     "uniq": "^1.0.1"
