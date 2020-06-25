@@ -37,7 +37,7 @@ function selfReply(message) {
     if (isNaN(message)) {
       // Use remove function to remove signal words like mood, #twitterbot
       function remove(textToFilter) {
-        let msgArray = message.split(" ");
+        let msgArray = message.toLowerCase().split(" ");
         const index = msgArray.indexOf(textToFilter);
         if (index !== -1) {
           msgArray.splice(index, 1);
@@ -45,17 +45,15 @@ function selfReply(message) {
         }
       }
       // logic for twitter
-      if (message.indexOf("#twitterbot") !== -1) {
+      if (message.toLowerCase().indexOf("#twitterbot") !== -1) {
         setTimeout(() => {
           // handling twitter logic here
           console.log(remove("#twitterbot"));
           message_container.innerHTML += `<div class="self">${message}</div>`;
           // botReply("These are peoples opinion");
         }, 2000);
-      } else if (message.indexOf("mood") !== -1) {
+      } else if (message.toLowerCase().indexOf("mood") !== -1) {
         // logic for unsplash pictures
-        console.log(message);
-        console.log(remove("mood"));
         message_container.innerHTML += `<div class="self">${message}</div>`;
         (function unsplashLogic() {
           // loading delay logic
@@ -63,36 +61,51 @@ function selfReply(message) {
           const loader = document.querySelector(".typing-loader");
           setTimeout(() => {
             loader.remove();
-            message_container.innerHTML += `<div class="bot" style="background-color: white">
+            // slots in unsplash images
+            message_container.innerHTML += `<div class="bot" style="background-color: white; margin: 0; padding: 0">
               <img 
                 src="https://source.unsplash.com/800x800/?${remove(
                   "mood"
                 )} alt="${remove("mood")}" class="unsplash">
-                <div style="background-color: white, box-shadow:box-shadow: 0 10px 50px #657786;">${remove(
-                  "mood"
-                )}</div>
             </div>`;
+            // handle image click to expand
             function modalLogic() {
-              sendSound.play();
               // Get the modal
               var modal = document.getElementById("myModal");
               // Get the image and insert it inside the modal - use its "alt" text as a caption
               var img = [...document.querySelectorAll(".unsplash")];
               var captionText = document.getElementById("caption");
               var modalImg = document.getElementById("img01");
+              // for every image click
               img.forEach((img) => {
-                img.onclick = function () {
-                  modal.style.display = "block";
-                  modalImg.src = this.src;
-                  captionText.innerHTML = this.alt;
-                };
+                img.onclick = openModal;
               });
+              function openModal() {
+                modal.style.display = "block";
+                modalImg.src = this.src;
+                // captionText.innerHTML = this.alt;
+              }
+              function closeModal(e) {
+                modal.style.display = "none";
+                window.addEventListener("keydown", (e) => {
+                  if (e.keyCode === 27) closeModal();
+                });
+              }
+              // function onBackKeyDown(e) {
+              //   e.preventDefault();
+              //   closeModal();
+              // }
+              // modal.addEventListener("backbutton", onBackKeyDown);
 
               // Get the <span> element that closes the modal
               var span = document.getElementsByClassName("close")[0];
               // When the user clicks on <span> (x), close the modal
-              span.onclick = () => (modal.style.display = "none");
+              span.onclick = closeModal;
+              modal.addEventListener("click", closeModal);
 
+              // ESCAPE
+
+              sendSound.play();
               window.scrollTo(0, document.body.scrollHeight);
               location.href = "#edge";
               input_box.focus();
