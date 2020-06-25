@@ -64,9 +64,8 @@ function selfReply(message) {
             // slots in unsplash images
             message_container.innerHTML += `<div class="bot" style="background-color: white; margin: 0; padding: 0">
               <img 
-                src="https://source.unsplash.com/800x800/?${remove(
-                  "mood"
-                )} alt="${remove("mood")}" class="unsplash">
+                src="https://source.unsplash.com/800x800/?${remove("mood")}"
+                alt="${remove("mood")}" class="unsplash">
             </div>`;
             // handle image click to expand
             function modalLogic() {

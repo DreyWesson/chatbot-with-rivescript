@@ -8,13 +8,18 @@ img {
   border-radius: 15px;
 }
 .scrollmenu {
-  margin-left: 10px;
+  /* margin-left: 10px; */
   overflow-x: hidden;
+  font-family: Roboto, sans-serif;
 }
+
 .scrollmenu a {
   font-size: 0.9em;
+  font-weight: bold;
   text-decoration: none;
-  color: rgb(6, 127, 248);
+  /* color: #1a73e8; */
+  color: #586069;
+  margin-left: 9px;
 }
 
 h1 {
