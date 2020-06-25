@@ -1,7 +1,10 @@
 let bot = new RiveScript();
+
 // var unique = require("uniq");
 // require("envify");
 // require("dotenv").config();
+
+// console.log(process.env.API_key);
 
 const brains = ["../brain.rive"];
 
@@ -105,9 +108,11 @@ function selfReply(message) {
               // ESCAPE
 
               sendSound.play();
-              window.scrollTo(0, document.body.scrollHeight);
-              location.href = "#edge";
-              input_box.focus();
+              setTimeout(() => {
+                window.scrollTo(0, document.body.scrollHeight);
+                location.href = "#edge";
+                input_box.focus();
+              }, 1000);
             }
             setTimeout(modalLogic, 1500);
           }, 1000);

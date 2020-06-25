@@ -42,7 +42,6 @@ h1 {
   color: white;
   margin-right: 15px;
   top: 5px;
-
   z-index: 3;
 }
 span {
@@ -121,7 +120,8 @@ button {
   height: 35px;
   width: 20%;
   color: white;
-  background-color: rgb(8, 189, 250);
+  /* background-color: rgb(8, 189, 250); */
+  background-color: #5096f1;
   border: none;
   font-weight: bold;
   font-size: 18px;
