@@ -11,15 +11,37 @@ const brains = ["../brain.rive"];
 const message_container = document.querySelector(".messages");
 const form = document.querySelector("form");
 const input_box = document.querySelector("input");
-
+let monitorSelfReply = 0;
 //Sound effect for replies
 // const replySound = new Audio("./sounds/reply_notification.mp3");
 const sendSound = new Audio("./sounds/send_notification.mp3");
-setTimeout(() => {
-  botReply(
-    `Wow, you've spent 6 minutes with me. Pls, click 'Get-update' to follow up my improvement. Keep chatting if you've done that already`
-  );
-}, 180000);
+//
+//
+//
+// Lagos emergencies
+const emergency = [
+  "Emergency Management (LASEMA) :08060907333, 08023127654, 08022234870, 016574706, 016574714",
+  "Nigeria Police: 08033011052, 08056250710, 08033183477",
+  "NDLEA:	0803347868",
+  "NAFDAC:	014528031, 014731018",
+  "Fake Drugs/ Narcotics (Task Force):	08033213799, 08034975296",
+  "Distress Call:	767, 112",
+  "Environmental & Special Offences Task Force:	07055028673",
+  "Refuse Issues (LAWMA):	5577 (Toll Free) 07080601020, 08023128099",
+  "Land Issues:	08034030263",
+  "Vehicle Registration/Drivers License (MVAA):	08029293099",
+  "Tax Issues (LIRS):	08033033121, 08033047270, 014979030-4",
+  "Fire/Safety Services:	08033234943, 08023321770",
+  " Security Trust Fund:	08028328204",
+  "Signage/Outdoor Advertising(LASAA):	767, 112",
+  "Environmental/Noise Pollution (LASEPA):	08033060452",
+  "Cutting of Roads (LASMIRA):	08033060452",
+  "Broken Pipe/Water Leakage:	08034068265",
+  "Pothole/Collapsed Road:	07060907493",
+  "Lagbus:	08033036816",
+  " BRT:	08023146096",
+];
+
 window.addEventListener("load", (event) => {
   input_box.focus();
 });
@@ -36,6 +58,7 @@ form.addEventListener("submit", (e) => {
 });
 
 function selfReply(message) {
+  monitorSelfReply++;
   //
   // Check if message is not empty
   if (message) {
@@ -55,7 +78,7 @@ function selfReply(message) {
       if (message.toLowerCase().indexOf("#twitterbot") !== -1) {
         setTimeout(() => {
           // handling twitter logic here
-          console.log(remove("#twitterbot"));
+          // console.log(remove("#twitterbot"));
           message_container.innerHTML += `<div class="self">${message}</div>`;
           // botReply("These are peoples opinion");
         }, 2000);
@@ -97,11 +120,6 @@ function selfReply(message) {
                   if (e.keyCode === 27) closeModal();
                 });
               }
-              // function onBackKeyDown(e) {
-              //   e.preventDefault();
-              //   closeModal();
-              // }
-              // modal.addEventListener("backbutton", onBackKeyDown);
 
               // Get the <span> element that closes the modal
               var span = document.getElementsByClassName("close")[0];
@@ -148,6 +166,8 @@ function selfReply(message) {
               botReply(`I am ${ageInYears}year(s) and ${getDays}day(s) old`);
           }
         })();
+      } else if (message.toLowerCase().indexOf("lagos emergency") !== -1) {
+        emergency.forEach((msg) => botReply(msg));
       } else botContentRoute();
     } else botReply("Oops, I'm not good with 'Numbers'!!!"); //logic for numbers
   } else {
@@ -173,6 +193,14 @@ function selfReply(message) {
     message_container.innerHTML += `<div class="self">${message}</div>`;
     location.href = "#edge";
     await bot.reply("local-user", message).then((reply) => botReply(reply));
+  }
+
+  if (monitorSelfReply == 6) {
+    setTimeout(() => {
+      botReply(
+        `Wow, you've spent 5 minutes with me. Pls, click 'Get-update' to follow up my improvement. Keep chatting if you've done that already`
+      );
+    }, 1000);
   }
 }
 

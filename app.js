@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
 const fetch = require("node-fetch");
+var Twit = require("twit");
 require("dotenv").config();
 
 const app = express();
@@ -16,6 +17,9 @@ app.get("/", function (req, res) {
   res.sendFile(path.join(__dirname + "/index.html"));
 });
 
+//
+//
+// Email implementation
 // Signup Route
 app.post("/signup", (req, res) => {
   const { firstName, lastName, email } = req.body;
@@ -59,6 +63,37 @@ app.post("/signup", (req, res) => {
     )
     .catch((err) => console.log(err));
 });
+//
+//
+//
+// Twitter implementation
+(async function () {
+  const user = new Twit({
+    consumer_key: process.env.API_key_twitter,
+    consumer_secret: process.env.API_secret_key,
+    access_token: process.env.Access_token,
+    access_token_secret: process.env.Access_token_secret,
+  });
+
+  try {
+    response = user.get(
+      `/search/tweets`,
+      {
+        q: "Lionel Messi", // The search term
+        lang: "en", // Let's only get English tweets
+        count: 3, // Limit the results to 100 tweets
+      },
+      processTweet
+    );
+    function processTweet(err, data, res) {
+      const tweets = data.statuses;
+      tweets.forEach((tweet, i) => console.log(tweets[i].text));
+    }
+  } catch (e) {
+    console.log("There was an error calling the Twitter API");
+    console.dir(e);
+  }
+})();
 
 const PORT = process.env.PORT || 3000;
 

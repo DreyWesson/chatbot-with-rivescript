@@ -1,16 +1,15 @@
 body {
-  max-width: 960px;
+  max-width: 370px;
   margin: 0 auto;
   background-color: white;
   color: #313539;
 }
-
 img {
   max-width: 100%;
 }
-@media only screen and (max-width: 770px) {
+@media only screen and (min-width: 770px) {
   body {
-    max-width: 370px;
+    max-width: 960px;
     margin: 0 auto;
     background-color: white;
     color: #313539;
