@@ -22,10 +22,10 @@ app.get("/", function (req, res) {
 // Email implementation
 // Signup Route
 app.post("/signup", (req, res) => {
-  const { firstName, lastName, email } = req.body;
+  const { firstName, email } = req.body;
 
   // Make sure fields are filled
-  if (!firstName || !lastName || !email) {
+  if (!firstName || !email) {
     res.redirect("/html/fail.html");
     return;
   }
@@ -38,7 +38,7 @@ app.post("/signup", (req, res) => {
         status: "subscribed",
         merge_fields: {
           FNAME: firstName,
-          LNAME: lastName,
+          // LNAME: lastName,
         },
       },
     ],
