@@ -15,7 +15,11 @@ const input_box = document.querySelector("input");
 //Sound effect for replies
 // const replySound = new Audio("./sounds/reply_notification.mp3");
 const sendSound = new Audio("./sounds/send_notification.mp3");
-
+setTimeout(() => {
+  botReply(
+    `Wow, you've spent 6 minutes with me. Pls, click 'Get-update' to follow up my improvement. Keep chatting if you've done that already`
+  );
+}, 180000);
 window.addEventListener("load", (event) => {
   input_box.focus();
 });

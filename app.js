@@ -1,11 +1,63 @@
 const express = require("express");
 const path = require("path");
+const bodyParser = require("body-parser");
+const fetch = require("node-fetch");
+require("dotenv").config();
 
 const app = express();
-// app.use(cors());
+
+// Bodyparser Middleware
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// Static folder
 app.use(express.static(path.join(__dirname, "public")));
+
 app.get("/", function (req, res) {
   res.sendFile(path.join(__dirname + "/index.html"));
+});
+
+// Signup Route
+app.post("/signup", (req, res) => {
+  const { firstName, lastName, email } = req.body;
+
+  // Make sure fields are filled
+  if (!firstName || !lastName || !email) {
+    res.redirect("/html/fail.html");
+    return;
+  }
+
+  // Construct req data
+  const data = {
+    members: [
+      {
+        email_address: email,
+        status: "subscribed",
+        merge_fields: {
+          FNAME: firstName,
+          LNAME: lastName,
+        },
+      },
+    ],
+  };
+
+  const postData = JSON.stringify(data);
+
+  fetch(
+    `https://us10.api.mailchimp.com/3.0/lists/${process.env.AUDIENCE_KEY}`,
+    {
+      method: "POST",
+      headers: {
+        Authorization: `${process.env.API_KEY}`,
+      },
+      body: postData,
+    }
+  )
+    .then(
+      res.statusCode === 200
+        ? res.redirect("/html/success.html")
+        : res.redirect("/html/fail.html")
+    )
+    .catch((err) => console.log(err));
 });
 
 const PORT = process.env.PORT || 3000;

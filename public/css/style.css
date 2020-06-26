@@ -6,6 +6,7 @@
 }
 img {
   border-radius: 15px;
+  margin-left: 5px;
 }
 .scrollmenu {
   /* margin-left: 10px; */
@@ -121,7 +122,7 @@ button {
   width: 20%;
   color: white;
   /* background-color: rgb(8, 189, 250); */
-  background-color: #5096f1;
+  background-color: #313539;
   border: none;
   font-weight: bold;
   font-size: 18px;
