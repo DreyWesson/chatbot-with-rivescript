@@ -4,8 +4,8 @@
   "description": "",
   "main": "script.js",
   "scripts": {
-    "start": "GOOGLE_APPLICATION_CREDENTIALS='./gcloud-private-key.json' node app",
-    "dev": "nodemon app"
+    "start": "GOOGLE_APPLICATION_CREDENTIALS='./wessonbot-2283cb6eba3b.json' node app",
+    "dev": "GOOGLE_APPLICATION_CREDENTIALS='./wessonbot-2283cb6eba3b.json' nodemon app"
   },
   "repository": {
     "type": "git",

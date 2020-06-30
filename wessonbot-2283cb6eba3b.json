@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "wessonbot",
+  "private_key_id": "2283cb6eba3bc735b13be25cfa17431feed7aa1b",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDI1BnJXpM1bUvu\nQntMBnHd8l5goxcdxvMavd87KDl2MiNEtnFelhGnfDU0x5vmQjES5kfYw38xoR72\n9uwdS+OfFOGeY//ncoxRKv0bf1KReEaU/JuNreeniVP1R6lr1fXeL7+bEQpCFkwB\nw1Ck8D0H7ucmhAZ1uQyy6TIqceRgmcTwK/DWga5AV8hhpzTbbPcFMg2+10KDJkex\ndtQ4P28ZP4sue4hlIsqh3tbPB3pgseDYbGP8lhi6pwvmuUUO2uGoiV5Md9hwZjm7\nuen9UPSbv6Fc5OlsF4/a2iswmjB0488EiTDUvHG3egDymFClw8bJiZhQwIHVOtRa\nRSIWMqJZAgMBAAECgf9RY6QPuARw4pqjNM5DQVlkWZVmFLKJntdnPwv5LZQcErW4\nYzgO3ULKXcwyV7MW3jyFLE5xyskBlAq4i9mlBdx53DyTtHNBmWrEemeZfUA5NEVm\nm/luscvwWfdssF45Fb1PDorYjU9a+S5UiJNmRPZ3AJstQNRdYWGEIH30NbQYcYFF\nsWHBy+MpvRIMEqgd8NDP7n9Bc9qJNU7ZMc3KR4cywXpjEHpeqA+NSOgMf9GlG7xk\ncqIBeW2xSIYGPYWAaSe8jG5Y2Z/KI6SvbYNvMfhYqw/l6tSZEO8kOGfSwC67xR1t\nq+gt5EZsVwQqi3hu90KfDcmpb9pmm8oUd9nOUD0CgYEA6MBlP0Ak0wOP8TPa/A0q\n0dXb4XMCglySI0gMN5sR9gHw0YVrREe6nHmJ5Xc7rQg2ZO+obpy66mZazwwrhDcY\n8r76Zl+1T5OWlaNHZ9Rq7kzbR3Mv771IwkfyKmwNpPWQ8M8oREZ5QEcmj4ytvJIP\nlxHG0ZB++SaHxv0lo9lDiWUCgYEA3ONpyIj382Uu5eVFPeObwdyu2wY/0NWdx73r\nxzcwY45HgSxaAafeylPkxpKhkIlk9DJWGAidCiOo2gM7mMQvWURaHwuGxPiJe9C3\nG3upMMT9QHUrd3x61HbEG81qmldYLUt+8KAIFiLvCvuqFkolNknM3uS2s6WKfI04\nVrL3n+UCgYEApn357uTTcp55uPB/FQ3WM4PnZb3/bYEKiHJhSuWCU5fPzBDESnOE\n6amHGr3P0latkkZdFcLHciUFkFYESu+eyQYT2GdeKy5H6YKC8aLhWtVfhhy/jZ65\nDUCp2e6xU+7VX2zQQQaodXJwAv9+yAUzYb01m3LhYRhOx+kNo8cmqIECgYEAh28s\ncheBKAxXKABeZycCXmgoEgUP5cTEfC73vOsa0T/wmcQO38sE8DtmH1bSlyOW8Z9X\naF8HoqrgoeOvi+hmO66ML1LK7ESTT4ZWbxRwVYXC3d25rAZ37YNwlLdrcHyzhPow\nN+t3adM7jBloXUhS7qlrYxMK7rVGZz3TWF1dNP0CgYEA4rQCADnLo6Ain0mFxSlB\nnR26WeFqvYg7d6KQrhXNNwEvB8JBM2PGcqgMBXE1fS8A3bN4C3retpJWiDAAI0kG\n5ZfF393WTVYH4d2uYcFrIFtL99LG6CeTorDtLwySIilGUNqI/bz1tXKdmIz2MQmN\nXiYUnuXDivA7BV0tGHipwao=\n-----END PRIVATE KEY-----\n",
+  "client_email": "wessonbot@wessonbot.iam.gserviceaccount.com",
+  "client_id": "117890672307712049850",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/wessonbot%40wessonbot.iam.gserviceaccount.com"
+}

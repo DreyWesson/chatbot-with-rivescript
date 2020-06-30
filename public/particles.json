@@ -4,7 +4,7 @@
       "value": 300
     },
     "color": {
-      "value": "#000"
+      "value": "#fff"
     },
     "shape": {
       "type": "square"
@@ -19,7 +19,7 @@
     },
     "line_linked": {
       "distance": 180,
-      "color": "#000",
+      "color": "#fff",
       "opacity": 0.1
     }
   }

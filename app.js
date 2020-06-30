@@ -67,33 +67,108 @@ app.post("/signup", (req, res) => {
 //
 //
 // Twitter implementation
-(async function () {
-  const user = new Twit({
-    consumer_key: process.env.API_key_twitter,
-    consumer_secret: process.env.API_secret_key,
-    access_token: process.env.Access_token,
-    access_token_secret: process.env.Access_token_secret,
-  });
+// const user = new Twit({
+//   consumer_key: process.env.API_key_twitter,
+//   consumer_secret: process.env.API_secret_key,
+//   access_token: process.env.Access_token,
+//   access_token_secret: process.env.Access_token_secret,
+// });
+// searchForTweets("donald trump");
+// async function searchForTweets(query) {
+//   try {
+//     response = await user.get(
+//       `/search/tweets`,
+//       {
+//         q: query, // The search term
+//         lang: "en", // Let's only get English tweets
+//         count: 3, // Limit the results to 100 tweets
+//       },
+//       processTweet
+//     );
+//     async function processTweet(err, data, res) {
+//       const tweets = data.statuses;
+//       let allTweets = "";
 
+//       tweets.forEach((tweet) => (allTweets += tweet.text + "\n"));
+//       // console.log(allTweets);
+//       const sentimentScore = getSentimentScore(allTweets);
+//       console.log(
+//       `The sentiment about ${query} is: ${sentimentScore}`;
+//       );
+//       getSentimentScore(allTweets);
+//     }
+//   } catch (e) {
+//     console.log("There was an error calling the Twitter API");
+//   }
+// }
+// const language = require("@google-cloud/language");
+// const languageClient = new language.LanguageServiceClient();
+
+// async function getSentimentScore(text) {
+//   const document = {
+//     content: text,
+//     type: "PLAIN_TEXT",
+//   };
+
+//   // Detects the sentiment of the text
+//   const [result] = await languageClient.analyzeSentiment({
+//     document: document,
+//   });
+//   const sentiment = result.documentSentiment;
+//   return console.log(sentiment.score);
+// }
+
+const Twitter = require("twitter-lite");
+const language = require("@google-cloud/language");
+const languageClient = new language.LanguageServiceClient();
+const user = new Twitter({
+  consumer_key: process.env.API_key_twitter,
+  consumer_secret: process.env.API_secret_key,
+});
+let access_token = process.env.Access_token;
+let allTweets = "";
+
+searchForTweets("lionel messi");
+
+async function searchForTweets(query) {
   try {
-    response = user.get(
-      `/search/tweets`,
-      {
-        q: "Lionel Messi", // The search term
-        lang: "en", // Let's only get English tweets
-        count: 3, // Limit the results to 100 tweets
-      },
-      processTweet
-    );
-    function processTweet(err, data, res) {
-      const tweets = data.statuses;
-      tweets.forEach((tweet, i) => console.log(tweets[i].text));
+    let response = await user.getBearerToken();
+    const app = new Twitter({
+      bearer_token: response.access_token,
+    });
+
+    response = await app.get(`/search/tweets`, {
+      q: query,
+      lang: "en",
+      count: 3,
+    });
+
+    for (tweet of response.statuses) {
+      allTweets += tweet.text + "\n";
     }
+    console.log(allTweets);
+    const sentimentScore = await getSentimentScore(allTweets);
+    console.log(`The sentiment about ${query} is: ${sentimentScore}`);
   } catch (e) {
     console.log("There was an error calling the Twitter API");
     console.dir(e);
   }
-})();
+}
+
+async function getSentimentScore(text) {
+  const document = {
+    content: text,
+    type: "PLAIN_TEXT",
+  };
+
+  // Detects the sentiment of the text
+  const [result] = await languageClient.analyzeSentiment({
+    document: document,
+  });
+  const sentiment = result.documentSentiment;
+
+  return sentiment.score;
+}
 
 const PORT = process.env.PORT || 3000;
 

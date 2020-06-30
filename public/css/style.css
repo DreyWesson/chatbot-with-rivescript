@@ -4,9 +4,14 @@
   width: 100%;
   margin: 0;
 }
+body {
+  background-color: black;
+}
 img {
   border-radius: 15px;
-  margin-left: 5px;
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
 }
 .scrollmenu {
   /* margin-left: 10px; */
@@ -26,7 +31,7 @@ img {
 h1 {
   width: 100%;
   padding: 15px;
-  background-color: #313539;
+  background-color: #191a1a;
   /* background-image: linear-gradient(to right, #313539, rgb(92, 202, 238)); */
   color: white;
   font-family: Arial, Helvetica, sans-serif;
@@ -81,7 +86,7 @@ span {
   color: white;
   border-radius: 15px 15px 0px 15px;
   /* background: #abbcce; */
-  background: rgb(92, 202, 238);
+  background: rgb(7, 183, 241);
 }
 
 #particles-js {
@@ -150,55 +155,54 @@ input {
 }
 @-webkit-keyframes line {
   0% {
-    background-color: rgba(0, 0, 0, 1);
+    background-color: white;
     box-shadow: 12px 0px 0px 0px rgba(0, 0, 0, 0.2),
-      24px 0px 0px 0px rgba(0, 0, 0, 0.2);
+      24px 0px 0px 0px rgb(7, 183, 241);
   }
   25% {
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: gainsboro;
     box-shadow: 12px 0px 0px 0px rgba(0, 0, 0, 2),
-      24px 0px 0px 0px rgba(0, 0, 0, 0.2);
+      24px 0px 0px 0px rgb(7, 183, 241);
   }
   75% {
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: wheat;
     box-shadow: 12px 0px 0px 0px rgba(0, 0, 0, 0.2),
-      24px 0px 0px 0px rgba(0, 0, 0, 2);
+      24px 0px 0px 0px rgb(7, 183, 241);
   }
 }
 
 @-moz-keyframes line {
   0% {
-    background-color: rgba(0, 0, 0, 1);
+    background-color: white;
     box-shadow: 12px 0px 0px 0px rgba(0, 0, 0, 0.2),
-      24px 0px 0px 0px rgba(0, 0, 0, 0.2);
+      24px 0px 0px 0px rgb(7, 183, 241);
   }
   25% {
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: white;
     box-shadow: 12px 0px 0px 0px rgba(0, 0, 0, 2),
-      24px 0px 0px 0px rgba(0, 0, 0, 0.2);
+      24px 0px 0px 0px rgb(7, 183, 241);
   }
   75% {
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: white;
     box-shadow: 12px 0px 0px 0px rgba(0, 0, 0, 0.2),
-      24px 0px 0px 0px rgba(0, 0, 0, 2);
+      24px 0px 0px 0px rgb(7, 183, 241);
   }
 }
 
 @keyframes line {
   0% {
-    background-color: rgba(0, 0, 0, 1);
-    box-shadow: 12px 0px 0px 0px rgba(0, 0, 0, 0.2),
-      24px 0px 0px 0px rgba(0, 0, 0, 0.2);
+    background-color: çç;
+    box-shadow: 12px 0px 0px 0px white, 24px 0px 0px 0px rgb(7, 183, 241);
   }
   25% {
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: white;
     box-shadow: 12px 0px 0px 0px rgba(0, 0, 0, 2),
-      24px 0px 0px 0px rgba(0, 0, 0, 0.2);
+      24px 0px 0px 0px rgb(7, 183, 241);
   }
   75% {
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: white;
     box-shadow: 12px 0px 0px 0px rgba(0, 0, 0, 0.2),
-      24px 0px 0px 0px rgba(0, 0, 0, 2);
+      24px 0px 0px 0px rgb(7, 183, 241);
   }
 }
 
