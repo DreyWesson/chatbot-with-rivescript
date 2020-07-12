@@ -22,8 +22,6 @@ img {
 .scrollmenu a {
   font-size: 0.9em;
   font-weight: bold;
-  /* text-decoration: none; */
-  /* color: #1a73e8; */
   color: #586069;
   margin-left: 9px;
 }
@@ -42,14 +40,22 @@ h1 {
 .header {
   position: relative;
 }
-i.fas {
+header img {
+  width: 45px;
+  border-radius: 50%;
+}
+header h5 {
+  color: white;
+  font-size: 20px;
+}
+/* i.fas {
   position: absolute;
   font-size: 30px;
   color: white;
   margin-right: 20px;
   top: 8px;
   z-index: 3;
-}
+} */
 span {
   margin-left: 45px;
   font-size: 20px;
@@ -57,7 +63,7 @@ span {
 
 /* Messages style */
 .chat {
-  margin-top: 65px;
+  margin-top: 10px;
   width: 92%;
   min-height: 90%;
   overflow: scroll;
