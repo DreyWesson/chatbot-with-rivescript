@@ -22,7 +22,7 @@ img {
 .scrollmenu a {
   font-size: 0.9em;
   font-weight: bold;
-  text-decoration: none;
+  /* text-decoration: none; */
   /* color: #1a73e8; */
   color: #586069;
   margin-left: 9px;
@@ -86,7 +86,8 @@ span {
   color: white;
   border-radius: 15px 15px 0px 15px;
   /* background: #abbcce; */
-  background: rgb(7, 183, 241);
+  /* background: rgb(7, 183, 241); */
+  background: rgb(45, 47, 48);
 }
 
 #particles-js {
@@ -127,11 +128,13 @@ button {
   width: 20%;
   color: white;
   /* background-color: rgb(8, 189, 250); */
-  background-color: #313539;
+  /* background-color: #313539; */
+  background: dodgerblue;
+
   border: none;
   font-weight: bold;
   font-size: 18px;
-  border-radius: 18px 18px;
+  border-radius: 10px;
 }
 input {
   color: #313539;
