@@ -42,12 +42,12 @@ h1 {
 .header {
   position: relative;
 }
-.fa {
+i.fas {
   position: absolute;
-  font-size: 35px;
+  font-size: 30px;
   color: white;
-  margin-right: 15px;
-  top: 5px;
+  margin-right: 20px;
+  top: 8px;
   z-index: 3;
 }
 span {
@@ -127,9 +127,9 @@ button {
   height: 35px;
   width: 20%;
   color: white;
-  /* background-color: rgb(8, 189, 250); */
-  /* background-color: #313539; */
-  background: dodgerblue;
+  background-color: rgb(7, 183, 241);
+  /* background-color: #313539;
+  background: rgb(93, 162, 231); */
 
   border: none;
   font-weight: bold;
