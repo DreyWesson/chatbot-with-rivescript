@@ -2,7 +2,7 @@ const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
 const fetch = require("node-fetch");
-var Twit = require("twit");
+// var Twit = require("twit");
 require("dotenv").config();
 
 const app = express();
@@ -118,57 +118,57 @@ app.post("/signup", (req, res) => {
 //   return console.log(sentiment.score);
 // }
 
-const Twitter = require("twitter-lite");
-const language = require("@google-cloud/language");
-const languageClient = new language.LanguageServiceClient();
-const user = new Twitter({
-  consumer_key: process.env.API_key_twitter,
-  consumer_secret: process.env.API_secret_key,
-});
-let access_token = process.env.Access_token;
-let allTweets = "";
+// const Twitter = require("twitter-lite");
+// const language = require("@google-cloud/language");
+// const languageClient = new language.LanguageServiceClient();
+// const user = new Twitter({
+//   consumer_key: process.env.API_key_twitter,
+//   consumer_secret: process.env.API_secret_key,
+// });
+// let access_token = process.env.Access_token;
+// let allTweets = "";
 
-searchForTweets("lionel messi");
+// searchForTweets("lionel messi");
 
-async function searchForTweets(query) {
-  try {
-    let response = await user.getBearerToken();
-    const app = new Twitter({
-      bearer_token: response.access_token,
-    });
+// async function searchForTweets(query) {
+//   try {
+//     let response = await user.getBearerToken();
+//     const app = new Twitter({
+//       bearer_token: response.access_token,
+//     });
 
-    response = await app.get(`/search/tweets`, {
-      q: query,
-      lang: "en",
-      count: 3,
-    });
+//     response = await app.get(`/search/tweets`, {
+//       q: query,
+//       lang: "en",
+//       count: 3,
+//     });
 
-    for (tweet of response.statuses) {
-      allTweets += tweet.text + "\n";
-    }
-    console.log(allTweets);
-    const sentimentScore = await getSentimentScore(allTweets);
-    console.log(`The sentiment about ${query} is: ${sentimentScore}`);
-  } catch (e) {
-    console.log("There was an error calling the Twitter API");
-    console.dir(e);
-  }
-}
+//     for (tweet of response.statuses) {
+//       allTweets += tweet.text + "\n";
+//     }
+//     console.log(allTweets);
+//     const sentimentScore = await getSentimentScore(allTweets);
+//     console.log(`The sentiment about ${query} is: ${sentimentScore}`);
+//   } catch (e) {
+//     console.log("There was an error calling the Twitter API");
+//     console.dir(e);
+//   }
+// }
 
-async function getSentimentScore(text) {
-  const document = {
-    content: text,
-    type: "PLAIN_TEXT",
-  };
+// async function getSentimentScore(text) {
+//   const document = {
+//     content: text,
+//     type: "PLAIN_TEXT",
+//   };
 
-  // Detects the sentiment of the text
-  const [result] = await languageClient.analyzeSentiment({
-    document: document,
-  });
-  const sentiment = result.documentSentiment;
+//   // Detects the sentiment of the text
+//   const [result] = await languageClient.analyzeSentiment({
+//     document: document,
+//   });
+//   const sentiment = result.documentSentiment;
 
-  return sentiment.score;
-}
+//   return sentiment.score;
+// }
 
 const PORT = process.env.PORT || 3000;
 

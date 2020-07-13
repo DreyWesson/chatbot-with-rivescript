@@ -13,51 +13,37 @@ img {
   padding: 0;
   max-width: 100%;
 }
-.scrollmenu {
-  /* margin-left: 10px; */
-  overflow-x: hidden;
-  font-family: Roboto, sans-serif;
-}
 
-.scrollmenu a {
-  font-size: 0.9em;
-  font-weight: bold;
-  color: #586069;
-  margin-left: 9px;
-  text-decoration: underline;
-}
-
-h1 {
+/* h1 {
   width: 100%;
   padding: 15px;
   background-color: #191a1a;
-  /* background-image: linear-gradient(to right, #313539, rgb(92, 202, 238)); */
   color: white;
   font-family: Arial, Helvetica, sans-serif;
   position: fixed;
   top: 0;
   z-index: 5;
-}
+} */
 
 span {
   margin-left: 45px;
   font-size: 20px;
 }
 
-/* Messages style */
+/* Message UI
+=============================== */
 .chat {
   margin-top: 10px;
-  width: 92%;
+  width: 96%;
   min-height: 90%;
   overflow: scroll;
 }
 
 .messages div {
-  max-width: 60%;
+  max-width: 75%;
   display: block;
   margin: 5px;
   padding: 10px;
-  /* border-radius: 7px; */
   border-radius: 15px 15px 0px 15px;
 }
 
@@ -78,7 +64,20 @@ span {
   /* background: rgb(7, 183, 241); */
   background: rgb(45, 47, 48);
 }
+.scrollmenu {
+  overflow-x: hidden;
+  font-family: Roboto, sans-serif;
+}
 
+.scrollmenu a {
+  font-size: 0.9em;
+  font-weight: bold;
+  color: #586069;
+  margin-left: 9px;
+  text-decoration: underline;
+}
+/* Particle JS
+=============================== */
 #particles-js {
   position: absolute;
   width: 100%;
@@ -91,10 +90,14 @@ span {
 canvas {
   margin-top: 20px;
 }
+
+/* Form: Input
+=============================== */
 label {
   position: absolute;
   top: -999999px;
 }
+
 .actions {
   position: fixed;
   display: flex;
@@ -137,6 +140,12 @@ input {
   padding-left: 5px;
 }
 
+body.keyboard {
+  height: calc(100% + 500px);
+}
+
+/* Typing Animation
+=============================== */
 .typing-loader {
   margin: 60px auto;
   width: 6px;
@@ -205,8 +214,4 @@ input {
     max-width: 500px;
     margin: 0 auto;
   }
-}
-
-body.keyboard {
-  height: calc(100% + 500px); /* add padding for keyboard */
 }
