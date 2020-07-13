@@ -38,25 +38,7 @@ h1 {
   top: 0;
   z-index: 5;
 }
-.header {
-  position: relative;
-}
-header img {
-  width: 45px;
-  border-radius: 50%;
-}
-header h5 {
-  color: white;
-  font-size: 20px;
-}
-/* i.fas {
-  position: absolute;
-  font-size: 30px;
-  color: white;
-  margin-right: 20px;
-  top: 8px;
-  z-index: 3;
-} */
+
 span {
   margin-left: 45px;
   font-size: 20px;
